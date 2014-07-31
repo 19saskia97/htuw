@@ -26,6 +26,6 @@ in der Eingabeaufforderung aus. Dazu wechselt man in das Verzeichnis in welchem
 sich das Programm "htuw.pl" befindet (der Name "htuw" steht für HoursTracker Umwandlung).
 Es lässt sich dann mit "perl uw.pl" aufruft und versteht folgende Parameter:
 
---in|-i  [dateiname]		wählt Inputdatei aus 
---out|-o [dateiname]		wählt Outputdatei aus
+* --in|-i  [dateiname]		wählt Inputdatei aus 
+* --out|-o [dateiname]		wählt Outputdatei aus
 
