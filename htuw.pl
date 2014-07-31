@@ -26,7 +26,7 @@ sub verarbeiteDaten
 	while (my $line = <EXPORT>)
 	{
 		next if not defined($line);
-		next if $line =~ /^.*;.*art;.*/;
+		next if $line =~ /^"Job/;
 		
 		my ($tag, $start, $ende, $dauer) = verarbeiteZeile($line);
 		my ($xtag, $monat, $jahr) = split (/\./, $tag);
@@ -96,7 +96,8 @@ sub addiereDauer($$)
 sub verarbeiteZeile($)
 {
 	my $line = shift;
-	my($job, $anfang, $beendet) = split (";", $line);
+	$line =~ s/"//g;
+	my($job, $anfang, $beendet, @rest) = split (",", $line);
 	my($Tag, $start) = split (" ",$anfang); 
 	my $ende = (split (" ",$beendet))[1];
 	return ($Tag, $start, $ende, berechneDauer($start, $ende));
